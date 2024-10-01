@@ -49,7 +49,7 @@ export function EditEventModal({ eventObject, isOpen, setModalOpen, setEventsDat
     <Modal
       width={250}
       open={isOpen}
-      cancelButtonProps={{ onClick: () => discardEvent(), danger: true, size: "small", variant: "text" }}
+      cancelButtonProps={{ onClick: discardEvent, danger: true, size: "small", variant: "text" }}
       okButtonProps={{ onClick: form.submit, ghost: true, size: "small", variant: "text" }}
       cancelText="Discard"
       okText="Edit"
