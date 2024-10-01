@@ -14,21 +14,21 @@ const localizer = momentLocalizer(moment);
 const startEvents = [
   {
     id: 1,
-    title: "Test event",
-    start: new Date(2024, 9, 1, 9, 0),
-    end: new Date(2024, 9, 1, 9, 0),
+    title: "Test event111",
+    start: new Date(),
+    end: new Date(),
   },
 ];
 
 export function CustomCalendar() {
   const [eventsData, setEventsData] = useState(startEvents);
-  const [eventObject, setEventsObject] = useState({});
+  const [selectedEventObject, setSelectedEventsObject] = useState({});
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-
+  console.log(eventsData);
   const handleSelectSlot = useCallback(
     dateObject => {
-      setEventsObject(dateObject);
+      setSelectedEventsObject(dateObject);
       setAddModalOpen(true);
     },
     [setEventsData]
@@ -36,7 +36,7 @@ export function CustomCalendar() {
 
   const handleSelectEvent = useCallback(
     dateObject => {
-      setEventsObject(dateObject);
+      setSelectedEventsObject(dateObject);
       setEditModalOpen(true);
     },
     [setEventsData]
@@ -72,7 +72,7 @@ export function CustomCalendar() {
         <AddEventModal
           isOpen={addModalOpen}
           setModalOpen={setAddModalOpen}
-          eventObject={eventObject}
+          eventObject={selectedEventObject}
           setEventsData={setEventsData}
         />
       )}
@@ -80,7 +80,7 @@ export function CustomCalendar() {
         <EditEventModal
           isOpen={editModalOpen}
           setModalOpen={setEditModalOpen}
-          eventObject={eventObject}
+          eventObject={selectedEventObject}
           setEventsData={setEventsData}
         />
       )}
