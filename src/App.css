@@ -1,0 +1,58 @@
+#root {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.ant-menu-inline .ant-menu-item {
+  height: 53px;
+  line-height: 53px;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+.ant-layout-sider {
+  background: #43425d;
+}
+
+.ant-menu-dark {
+  background: #43425d;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background: #002a5c;
+  position: relative;
+}
+
+.ant-menu-dark .ant-menu-item-selected::before {
+  content: "";
+  width: 5px;
+  height: 53px;
+  background: #a3a0fb;
+  position: absolute;
+  left: 0;
+}
+
+.ant-menu-inline .ant-menu-item {
+  margin: 0;
+  width: 100%;
+}
+
+.ant-menu .ant-menu-item {
+  border-radius: 0;
+}
+
+.ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content {
+  flex: none;
+}
+
+.ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date {
+  background: #F5F6FA;
+}
+
+.ant-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
