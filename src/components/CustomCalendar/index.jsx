@@ -15,8 +15,8 @@ const startEvents = [
   {
     id: 1,
     title: "Test event",
-    start: new Date(2024, 10, 1, 9, 0),
-    end: new Date(2024, 10, 1, 9, 0),
+    start: new Date(2024, 9, 1, 9, 0),
+    end: new Date(2024, 9, 1, 9, 0),
   },
 ];
 
