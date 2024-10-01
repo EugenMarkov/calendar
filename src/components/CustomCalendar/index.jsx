@@ -14,9 +14,9 @@ const localizer = momentLocalizer(moment);
 const startEvents = [
   {
     id: 1,
-    title: "Test event",
-    start: new Date(2024, 10, 1, 9, 0),
-    end: new Date(2024, 10, 1, 9, 0),
+    title: "Test today event",
+    start: new Date(),
+    end: new Date(),
   },
 ];
 
