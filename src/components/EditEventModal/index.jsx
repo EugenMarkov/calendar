@@ -12,6 +12,12 @@ export function EditEventModal({ eventObject, isOpen, setModalOpen, setEventsDat
     desc: eventObject.desc,
   };
 
+  const discardEvent = () => {
+    setEventsData(prev => prev.filter(evObj => evObj.id !== eventObject.id));
+    setModalOpen(false);
+    form.resetFields();
+  };
+
   const closeModal = () => {
     setModalOpen(false);
     form.resetFields();
@@ -23,11 +29,19 @@ export function EditEventModal({ eventObject, isOpen, setModalOpen, setEventsDat
     const newEvent = {
       id: eventObject.id,
       title: values.title,
-      start: dayjs(values.date).startOf('day').add(dayjs(values.start).hour(), 'hour').add(dayjs(values.start).minute(), 'minute').toDate(),
-      end: dayjs(values.date).startOf('day').add(dayjs(values.start).hour(), 'hour').add(dayjs(values.start).minute(), 'minute').toDate(),
+      start: dayjs(values.date)
+        .startOf("day")
+        .add(dayjs(values.start).hour(), "hour")
+        .add(dayjs(values.start).minute(), "minute")
+        .toDate(),
+      end: dayjs(values.date)
+        .startOf("day")
+        .add(dayjs(values.start).hour(), "hour")
+        .add(dayjs(values.start).minute(), "minute")
+        .toDate(),
       desc: values.desc,
     };
-    setEventsData(prev => prev.map(evObj => evObj.id === newEvent.id ? newEvent : evObj));
+    setEventsData(prev => prev.map(evObj => (evObj.id === newEvent.id ? newEvent : evObj)));
     setModalOpen(false);
   };
 
@@ -35,9 +49,9 @@ export function EditEventModal({ eventObject, isOpen, setModalOpen, setEventsDat
     <Modal
       width={250}
       open={isOpen}
-      cancelButtonProps={{ danger: true, size: "small", variant: "text" }}
+      cancelButtonProps={{ onClick: () => discardEvent(), danger: true, size: "small", variant: "text" }}
       okButtonProps={{ onClick: form.submit, ghost: true, size: "small", variant: "text" }}
-      cancelText='Discard'
+      cancelText="Discard"
       okText="Edit"
       destroyOnClose={true}
       onCancel={closeModal}

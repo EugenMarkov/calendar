@@ -14,7 +14,7 @@ const localizer = momentLocalizer(moment);
 const startEvents = [
   {
     id: 1,
-    title: "Test event111",
+    title: "Test today event",
     start: new Date(),
     end: new Date(),
   },
@@ -25,7 +25,7 @@ export function CustomCalendar() {
   const [selectedEventObject, setSelectedEventsObject] = useState({});
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-  console.log(eventsData);
+
   const handleSelectSlot = useCallback(
     dateObject => {
       setSelectedEventsObject(dateObject);
